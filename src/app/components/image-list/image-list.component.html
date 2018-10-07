@@ -1,0 +1,17 @@
+<mat-grid-list [cols]="cols" rowHeight="2:4" (window:resize)="onResize($event)"gutterSize="2rem">
+  <mat-grid-tile *ngFor="let photo of photoList" (click)="openImage(photo.link)">
+    <mat-card class="pointer">
+      <mat-card-header>
+        <mat-card-title>Title: {{photo.title}}</mat-card-title>
+        <mat-card-subtitle>Author: {{photo.author | formatName}}</mat-card-subtitle>
+        <mat-card-subtitle>Published: {{photo.published | date}}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image [src]="photo.media.m">
+      <mat-card-content>
+        <p style="word-break: break-all">
+          {{photo.description}}
+        </p>
+      </mat-card-content>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>
